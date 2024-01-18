@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { AxiosResponse } from "axios";
 import { ReactNode } from "react";
-import { NavigateFunction } from "react-router-dom";
 
 export interface LoginProviderProps {
   children: ReactNode;
@@ -9,5 +10,5 @@ export interface ILogin {
   password: string;
 }
 export interface LoginContextProps {
-  login: (data: ILogin, navigate: NavigateFunction) => void;
+  login: (data: ILogin) => Promise<AxiosResponse<any, any>>;
 }

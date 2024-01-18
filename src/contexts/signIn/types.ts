@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { AxiosResponse } from "axios";
 import { ReactNode } from "react";
-import { NavigateFunction } from "react-router-dom";
 
 export interface ISignIn {
   username: string;
@@ -9,7 +10,7 @@ export interface ISignIn {
 }
 
 export interface SignInContextProps {
-  signIn: (data: ISignIn, navifate: NavigateFunction) => void;
+  signIn: (data: ISignIn) => Promise<AxiosResponse<any, any>>;
 }
 
 export interface SignInProviderProps {

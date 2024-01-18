@@ -5,6 +5,7 @@ export const FormComponent = styled.form`
   width: 300px;
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   border-radius: 10px;
   align-items: center;

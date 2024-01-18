@@ -13,3 +13,9 @@ export const Input = styled.input`
   border: 1px solid black;
   padding-left: 5px;
 `;
+
+export const TextRedirect = styled.p`
+  margin: 0;
+  text-decoration: underline;
+  cursor: pointer;
+`;

@@ -5,16 +5,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Providers } from "./contexts/index.tsx";
 import { SignInPage } from "./pages/signin/signIn.tsx";
+
+import { LoginPage } from "./pages/login/login.tsx";
 import { DrivePage } from "./pages/drive/drivePage.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/signin",
     element: <SignInPage />,
   },
   {
-    path: "/drive",
+    path: "/drive/*",
     element: <DrivePage />,
+  },
+  {
+    path: "/",
+    element: <LoginPage />,
   },
 ]);
 

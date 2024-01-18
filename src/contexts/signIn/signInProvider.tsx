@@ -1,19 +1,21 @@
 import { createContext, useContext } from "react";
 import { ISignIn, SignInContextProps, SignInProviderProps } from "./types";
-import { useAuth } from "../auth/authProvider";
+
 import api from "../../axios";
-import { NavigateFunction } from "react-router-dom";
+
 const SignInContext = createContext<SignInContextProps>(
   {} as SignInContextProps
 );
 export const SignInProvider = ({ children }: SignInProviderProps) => {
-  const { setUser } = useAuth();
-
-  const signIn = (data: ISignIn, navigate: NavigateFunction) => {
-    api
+  const signIn = async (data: ISignIn) => {
+    const result = await api
       .post("/users", data)
-      .then((response) => setUser(response.data))
-      .then(() => navigate("/login"));
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => console.log(error));
+
+    return result;
   };
   return (
     <SignInContext.Provider value={{ signIn }}>
